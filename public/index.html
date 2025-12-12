@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian Ojeda | Java Backend Developer</title>
+    <meta name="description" content="Java Backend Developer specialized in Spring Boot, REST APIs and Microservices">
+    <meta name="keywords" content="Java, Spring Boot, Backend Developer, REST API, Microservices">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cristian Ojeda - Java Backend Developer">
+    <meta property="og:description" content="Specialized in Spring Boot, REST APIs and Microservices">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        :root {
+            /* Light theme */
+            --primary: #0a1f44;
+            --secondary: #6DB33F;
+            --accent: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 4rem;
+            
+            /* Transitions */
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --secondary: #4ade80;
+            --accent: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-sm);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        p {
+            margin-bottom: var(--space-sm);
+            color: var(--text-secondary);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== HEADER & NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .theme-toggle, .language-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .theme-toggle:hover, .language-toggle:hover {
+            background: var(--border-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== HERO SECTION CON IMAGEN ===== */
+        .hero {
+            padding: calc(var(--space-xl) + 4rem) 0 var(--space-xl);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-xl);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            margin-bottom: var(--space-sm);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin-top: var(--space-md);
+        }
+
+        /* CONTENEDOR DE IMAGEN - AQUÍ DEBES AGREGAR TU IMAGEN */
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--secondary);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .placeholder-image {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--secondary);
+        }
+
+        .placeholder-image div {
+            font-size: 5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: var(--space-xl) 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: var(--space-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h4 {
+            color: var(--secondary);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects {
+            padding: var(--space-xl) 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 180px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: var(--space-md);
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .status-completed {
+            background: #10b98120;
+            color: #10b981;
+        }
+
+        .status-inprogress {
+            background: #f59e0b20;
+            color: #f59e0b;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: var(--space-sm) 0;
+        }
+
+        .tech-tag {
+            background: var(--bg-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .email-container {
+            background: var(--card-bg);
+            padding: var(--space-md);
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .email-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-display {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            padding: var(--space-sm);
+            background: var(--bg-color);
+            border-radius: 8px;
+            margin: var(--space-md) 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .email-part {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ICONOS DE REDES SOCIALES AGRANDADOS */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .social-link {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-8px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--card-bg);
+            padding: var(--space-xl) 0 var(--space-md);
+            margin-top: var(--space-xl);
+            text-align: center;
+        }
+
+        .footer-content {
+            color: var(--text-secondary);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: calc(var(--space-xl) + 6rem);
+            }
+            
+            .hero-image, .placeholder-image {
+                width: 300px;
+                height: 300px;
+                margin-top: var(--space-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--card-bg);
+                flex-direction: column;
+                padding: var(--space-md);
+                gap: var(--space-sm);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image, .placeholder-image {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .social-link {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+            
+            .social-link {
+                width: 80px;
+                height: 80px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Cristian<span>Ojeda</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active" id="navHome">Home</a></li>
+                    <li><a href="#about" id="navAbout">About</a></li>
+                    <li><a href="#projects" id="navProjects">Projects</a></li>
+                    <li><a href="#contact" id="navContact">Contact</a></li>
+                    <li>
+                        <button class="language-toggle" id="languageToggle" aria-label="Change language">
+                            <span id="languageFlag">🇪🇸</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section CON IMAGEN -->
+    <section id="home" class="hero">
+        <div class="container" style="display: flex; align-items: center; gap: 4rem;">
+            <div class="hero-content">
+                <div class="hero-badge">Java Backend Developer</div>
+                <h1 class="hero-title" id="heroTitle">Cristian Ojeda</h1>
+                <p class="hero-subtitle" id="heroSubtitle">Specialized in <strong>Spring Boot</strong>, REST APIs and Microservices</p>
+                <p id="heroDescriptionFull">Building scalable backend systems with clean code and modern architecture patterns. Passionate about creating efficient and maintainable solutions.</p>
+                
+                <div class="hero-buttons">
+                    <!-- EDITAR: Cambia "#" por la URL de tu PDF -->
+                    <a href="#" class="btn btn-primary" id="cvDownload">
+                        <i class="fas fa-download"></i> <span id="btnDownloadCV">Download CV</span>
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fas fa-code"></i> <span id="btnViewProjects">View Projects</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- ===== SECCIÓN PARA AGREGAR TU IMAGEN ===== 
+             
+            REEMPLAZA EL SIGUIENTE CÓDIGO CON TU IMAGEN: -->
+            
+            <div class="hero-image-container">
+                <img src="images/avatar.png" alt="Cristian Ojeda - Java Backend Developer" class="hero-image">
+            </div>
+            
+           
+            
+            <!-- ACTUALMENTE: Contenedor de placeholder - REEMPLAZAR CON TU IMAGEN 
+            <div class="hero-image-container">
+                <div class="placeholder-image">
+                    <div>👨‍💻</div>
+                    <p>Tu foto aquí</p>
+                    <small style="font-size: 0.9rem; margin-top: 0.5rem;">Reemplaza con tu imagen</small>
+                </div>
+            </div> -->
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 id="aboutTitle">About Me</h2>
+            <p id="aboutDescription">Desarrollador Backend especializado en el ecosistema Java con enfoque en Spring Boot. Me apasiona crear APIs robustas, sistemas escalables y arquitecturas limpias.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-server"></i> Backend</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-java"></i> Java 17</span>
+                        <span class="skill-tag"><i class="fas fa-leaf"></i> Spring Boot 3.x</span>
+                        <span class="skill-tag"><i class="fas fa-layer-group"></i> Spring MVC</span>
+                        <span class="skill-tag"><i class="fas fa-shield-alt"></i> Spring Security</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> JPA/Hibernate</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> REST APIs</span>
+                        <span class="skill-tag"><i class="fas fa-microchip"></i> Microservices</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-brain"></i> Skills & Methodologies</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fas fa-code"></i> Clean Code</span>
+                        <span class="skill-tag"><i class="fas fa-cogs"></i> SOLID Principles</span>
+                        <span class="skill-tag"><i class="fas fa-project-diagram"></i> Design Patterns</span>
+                        <span class="skill-tag"><i class="fas fa-sync-alt"></i> Agile/Scrum</span>
+                        <span class="skill-tag"><i class="fas fa-chart-line"></i> Problem Solving</span>
+                        <span class="skill-tag"><i class="fas fa-users"></i> Team Collaboration</span>
+                        <span class="skill-tag"><i class="fas fa-book"></i> Continuous Learning</span>
+                        <span class="skill-tag"><i class="fas fa-tasks"></i> Code Review</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-tools"></i> DevOps & Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+                        <span class="skill-tag"><i class="fas fa-cube"></i> Maven</span>
+                        <span class="skill-tag"><i class="fas fa-vial"></i> JUnit</span>
+                        <span class="skill-tag"><i class="fas fa-bolt"></i> Postman</span>
+                        <span class="skill-tag"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
+                        <span class="skill-tag"><i class="fas fa-terminal"></i> Bash/Shell</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 id="projectsTitle">Projects</h2>
+            <p id="projectsDescription">Proyectos de práctica y aprendizaje que demuestran mis habilidades en el ecosistema Java.</p>
+            
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 id="contactTitle">Contact</h2>
+            <p id="contactSubtitle">Get in touch for collaboration or opportunities</p>
+            
+            <div class="email-container" id="emailReveal">
+                <h3 id="emailClick"><i class="fas fa-envelope"></i> Click to reveal email</h3>
+                <div class="email-display" id="emailDisplay">
+                    <span class="email-part" id="emailUser"></span>
+                    <span class="email-part" id="emailAt">@</span>
+                    <span class="email-part" id="emailDomain"></span>
+                    <span class="email-part" id="emailTld"></span>
+                </div>
+                <p class="text-small" id="emailProtected">Email protected from spam bots</p>
+            </div>
+            
+            <div class="social-links">
+                <!-- EDITAR: Cambia los href por tus links -->
+                <a href="https://github.com/tuusuario" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/tuusuario" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3 style="margin: var(--space-sm) 0;">Cristian Ojeda</h3>
+                <p id="footerText">Java Backend Developer specialized in Spring Boot</p>
+                <p style="margin-top: var(--space-md); font-size: 0.9rem;" id="footerCopyright">
+                    &copy; 2025 Cristian Ojeda. Built with passion for backend development.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <script>
+        // Add Font Awesome dynamically
+        const faScript = document.createElement('script');
+        faScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js';
+        document.head.appendChild(faScript);
+    </script>
+
+    <script>
+        // ===== CONFIGURACIÓN EDITABLE =====
+        // ⭐⭐ EDITA AQUÍ TUS DATOS ⭐⭐
+        const CONFIG = {
+            // Tu email (separa usuario, dominio y extensión)
+            email: {
+                user: "criss259_",        // EDITAR: tu usuario de email
+                domain: "hotmail",      // EDITAR: tu dominio sin @
+                tld: ".com"              // EDITAR: .com, .dev, etc.
+            },
+            // Tus redes sociales
+            social: {
+                github: "https://github.com/Cristian3-8",        // EDITAR
+                linkedin: "https://www.linkedin.com/in/cristian-ojeda-developer/"  // EDITAR
+            },
+            // Tu CV en PDF
+            cvUrl: "/public/cv/CvPortafolio.pdf"
+        };
+
+        // ===== PROJECTS DATA =====
+        const projectsData = [
+            {
+                id: 1,
+                title: "NexusAPI Gateway",
+                subtitle: "Spring Cloud Gateway - API Management System",
+                description: "Sistema centralizado para gestionar, enrutar y proteger microservicios. Implementa rate limiting, circuit breaker y transformación de requests.",
+                technologies: ["Spring Cloud", "Java 17", "Docker", "Redis", "JWT"],
+                github: "https://github.com",
+                status: "completed",
+                icon: "🚪"
+            },
+            {
+                id: 2,
+                title: "SecureAuth API",
+                subtitle: "SECUREAUTH API - SEGURIDAD AVANZADA",
+                description: "SecureAuth API es un sistema de autenticación y gestión de usuarios completo construido con Spring Boot 6 y Spring Security 6. Implementa un sistema modular y escalable con doble dashboard (administrador y usuario), CRUD de usuarios, control de roles, y una interfaz moderna con Bootstrap 5.",
+                technologies: ["Java", "Spring Boot", "Spring Security", "JPA", "MySQL", "Hibernate"],
+                github: "https://github.com/Cristian3-8/secureauth-api-springboot",
+                status: "completed",
+                icon: "🛡️"
+            },
+            {
+                id: 3,
+                title: "DataFlow Engine",
+                subtitle: "Spring Batch - Real-time Data Processor",
+                description: "Motor de procesamiento de datos para pipelines ETL y análisis en tiempo real. Procesa grandes volúmenes de datos con Spring Batch y WebSockets.",
+                technologies: ["Spring Batch", "Kafka", "WebSocket", "MongoDB", "Docker"],
+                github: "https://github.com",
+                status: "inprogress",
+                icon: "📊"
+            }
+        ];
+
+        // ===== IDIOMAS =====
+        let currentLang = 'es';
+        const translations = {
+            es: {
+                // Hero
+                heroTitle: "Cristian Ojeda",
+                heroSubtitle: "Especializado en <strong>Spring Boot</strong>, APIs REST y Microservicios",
+                heroDescriptionFull: "Construyendo sistemas backend escalables con código limpio y patrones de arquitectura modernos. Apasionado por crear soluciones eficientes y mantenibles.",
+                
+                // About
+                aboutTitle: "Sobre Mí",
+                aboutDescription: "Desarrollador Backend especializado en el ecosistema Java con más de 3 años de experiencia enfocado en Spring Boot. Me apasiona crear APIs robustas, sistemas escalables y arquitecturas limpias siguiendo principios SOLID y patrones de diseño. Experto en desarrollo de microservicios, integración de sistemas y optimización de rendimiento.",
+                
+                // Projects
+                projectsTitle: "Proyectos",
+                projectsDescription: "Proyectos de práctica y aprendizaje que demuestran mis habilidades en el ecosistema Java. Cada proyecto representa un desafío técnico resuelto con las mejores prácticas de desarrollo backend.",
+                
+                // Contact
+                contactTitle: "Contacto",
+                contactSubtitle: "Contáctame para colaboraciones u oportunidades",
+                emailClick: "Haz click para revelar email",
+                emailProtected: "Email protegido de bots de spam",
+                
+                // Nav
+                navHome: "Inicio",
+                navAbout: "Sobre mí",
+                navProjects: "Proyectos",
+                navContact: "Contacto",
+                
+                // Buttons
+                btnDownloadCV: "Descargar CV",
+                btnViewProjects: "Ver Proyectos",
+                
+                // Footer
+                footerText: "Desarrollador Backend Java especializado en Spring Boot",
+                footerCopyright: "© 2025 Cristian Ojeda. Construido con pasión por el desarrollo backend."
+            },
+            en: {
+                // Hero
+                heroTitle: "Cristian Ojeda",
+                heroSubtitle: "Specialized in <strong>Spring Boot</strong>, REST APIs and Microservices",
+                heroDescriptionFull: "Building scalable backend systems with clean code and modern architecture patterns. Passionate about creating efficient and maintainable solutions.",
+                
+                // About
+                aboutTitle: "About Me",
+                aboutDescription: "Backend Developer specialized in Java ecosystem with over 3 years of experience focused on Spring Boot. Passionate about creating robust APIs, scalable systems and clean architectures following SOLID principles and design patterns. Expert in microservices development, system integration and performance optimization.",
+                
+                // Projects
+                projectsTitle: "Projects",
+                projectsDescription: "Practice and learning projects that demonstrate my skills in the Java ecosystem. Each project represents a technical challenge solved with backend development best practices.",
+                
+                // Contact
+                contactTitle: "Contact",
+                contactSubtitle: "Get in touch for collaboration or opportunities",
+                emailClick: "Click to reveal email",
+                emailProtected: "Email protected from spam bots",
+                
+                // Nav
+                navHome: "Home",
+                navAbout: "About",
+                navProjects: "Projects",
+                navContact: "Contact",
+                
+                // Buttons
+                btnDownloadCV: "Download CV",
+                btnViewProjects: "View Projects",
+                
+                // Footer
+                footerText: "Java Backend Developer specialized in Spring Boot",
+                footerCopyright: "© 2025 Cristian Ojeda. Built with passion for backend development."
+            }
+        };
+
+        // ===== FUNCIONES PRINCIPALES =====
+        
+        // Cambiar idioma
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            // Actualizar contenido
+            document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            document.getElementById('heroSubtitle').innerHTML = t.heroSubtitle;
+            document.getElementById('heroDescriptionFull').textContent = t.heroDescriptionFull;
+            
+            document.getElementById('aboutTitle').textContent = t.aboutTitle;
+            document.getElementById('aboutDescription').textContent = t.aboutDescription;
+            
+            document.getElementById('projectsTitle').textContent = t.projectsTitle;
+            document.getElementById('projectsDescription').textContent = t.projectsDescription;
+            
+            document.getElementById('contactTitle').textContent = t.contactTitle;
+            document.getElementById('contactSubtitle').textContent = t.contactSubtitle;
+            document.getElementById('emailClick').innerHTML = `<i class="fas fa-envelope"></i> ${t.emailClick}`;
+            document.getElementById('emailProtected').textContent = t.emailProtected;
+            
+            // Nav links
+            document.getElementById('navHome').textContent = t.navHome;
+            document.getElementById('navAbout').textContent = t.navAbout;
+            document.getElementById('navProjects').textContent = t.navProjects;
+            document.getElementById('navContact').textContent = t.navContact;
+            
+            // Botones
+            document.getElementById('btnDownloadCV').textContent = t.btnDownloadCV;
+            document.getElementById('btnViewProjects').textContent = t.btnViewProjects;
+            
+            // Footer
+            document.getElementById('footerText').textContent = t.footerText;
+            document.getElementById('footerCopyright').textContent = t.footerCopyright;
+            
+            // Bandera
+            document.getElementById('languageFlag').textContent = lang === 'es' ? '🇺🇸' : '🇪🇸';
+            
+            localStorage.setItem('language', lang);
+            
+            // Re-render proyectos con nuevo idioma
+            renderProjects();
+        }
+
+        // ===== THEME TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+
+        // ===== EMAIL REVEAL =====
+        const emailReveal = document.getElementById('emailReveal');
+        const emailUser = document.getElementById('emailUser');
+        const emailDomain = document.getElementById('emailDomain');
+        const emailTld = document.getElementById('emailTld');
+        
+        let emailRevealed = false;
+        
+        emailReveal.addEventListener('click', () => {
+            if (!emailRevealed) {
+                // Usa el email de CONFIG
+                typeEffect(CONFIG.email.user, emailUser, 100);
+                setTimeout(() => {
+                    typeEffect(CONFIG.email.domain, emailDomain, 100);
+                }, 800);
+                setTimeout(() => {
+                    typeEffect(CONFIG.email.tld, emailTld, 100);
+                }, 1600);
+                
+                emailRevealed = true;
+                const t = translations[currentLang];
+                emailReveal.querySelector('h3').innerHTML = `<i class="fas fa-check"></i> ${currentLang === 'es' ? '¡Email revelado!' : 'Email revealed!'}`;
+            }
+        });
+        
+        function typeEffect(text, element, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function typeChar() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeChar, speed);
+                }
+            }
+            
+            typeChar();
+        }
+
+        // ===== PROJECTS RENDER =====
+        function renderProjects() {
+            const container = document.getElementById('projectsGrid');
+            container.innerHTML = '';
+            
+            projectsData.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+                
+                projectCard.innerHTML = `
+                    <div class="project-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                        <div style="font-size: 3rem;">${project.icon}</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-${project.status}">
+                            ${project.status === 'completed' ? '✅ ' + (currentLang === 'es' ? 'Completado' : 'Completed') : '🚧 ' + (currentLang === 'es' ? 'En Progreso' : 'In Progress')}
+                        </span>
+                        <h3>${project.title}</h3>
+                        <p><strong>${project.subtitle}</strong></p>
+                        <p>${project.description}</p>
+                        
+                        <div class="project-tech">
+                            ${project.technologies.map(tech => 
+                                `<span class="tech-tag">${tech}</span>`
+                            ).join('')}
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="${project.github}" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1rem;">
+                                <i class="fab fa-github"></i> ${currentLang === 'es' ? 'Código' : 'Code'}
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(projectCard);
+            });
+        }
+
+        // ===== MOBILE MENU =====
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Solo prevenir default para links internos (#)
+                const href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+                // Si no empieza con # (como /cv/CvPortafolio.pdf)
+                // deja que el navegador maneje el link normalmente
+            });
+        });
+
+        // ===== ACTIVE NAV LINK =====
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== CONFIGURAR LINKS SOCIALES =====
+        function setupSocialLinks() {
+            document.querySelector('a[href*="github.com"]').href = CONFIG.social.github;
+            document.querySelector('a[href*="linkedin.com"]').href = CONFIG.social.linkedin;
+            document.querySelector('#cvDownload').href = CONFIG.cvUrl;
+        }
+
+        // ===== TOGGLE DE IDIOMA =====
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            changeLanguage(newLang);
+        });
+
+        // ===== INICIALIZACIÓN =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configurar links sociales
+            setupSocialLinks();
+            
+            // Set initial theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+            
+            // Set initial language
+            const savedLang = localStorage.getItem('language') || 'es';
+            changeLanguage(savedLang);
+            
+            // Render projects
+            renderProjects();
+            
+            // Update nav on load
+            updateActiveNavLink();
+        });
+
+        window.addEventListener('scroll', updateActiveNavLink);
+    </script>
+</body>
+</html>
