@@ -1,30 +1,78 @@
-# Portfolio Cristian Ojeda - Backend Java Developer
+🚀 Portfolio | Cristian Ojeda
 
-## 🚀 Características
-- Diseño responsive mobile-first
-- Dark/Light mode toggle
-- Sistema anti-spam para email
-- Proyectos cargados dinámicamente
-- Optimizado para Netlify
+Java Backend Developer
 
-## ✏️ Personalización
+Portfolio profesional moderno que exhibe mi experiencia y proyectos como desarrollador backend especializado en Java Spring Boot, arquitecturas de microservicios y desarrollo de APIs REST robustas.
 
-### 1. Información Personal
-Editar en `index.html`:
-- Línea 10: `<title>Cristian Ojeda | Java Backend Developer</title>`
-- Línea 248: `<a href="#" class="logo">Cristian<span>Ojeda</span></a>`
-- Línea 269: `<h1 class="hero-title">Cristian Ojeda</h1>`
+👉 Visita el portfolio: portafolio-cristian-ojeda.vercel.app
 
-### 2. Proyectos
-Editar en el `<script>` (línea ~420):
-```javascript
-const projectsData = [
-  {
-    title: "Tu Proyecto",
-    subtitle: "Tecnología usada",
-    description: "Descripción detallada",
-    technologies: ["Java", "Spring Boot"],
-    github: "https://github.com/tuusuario",
-    status: "completed"
-  }
-];
+📧 Contacto: criss259_@hotmail.com
+
+________________________________________________________________________
+
+✨ Características del Portfolio:
+
+🎨 Diseño Moderno	Interfaz limpia y profesional con modo claro/oscuro
+
+📱 100% Responsive	Experiencia óptima en móvil, tablet y escritorio
+
+⚡ Rendimiento Optimizado	Desplegado en Vercel con carga rápida
+
+📬 Formulario Seguro	Sistema anti-spam integrado para el contacto
+
+🗂️ Proyectos Dinámicos	Proyectos cargados dinámicamente para fácil actualización
+
+________________________________________________________________________
+
+🛠️ Tecnologías Utilizadas:
+
+🎨 Frontend:
+
+HTML5 Semántico, CSS3 (Flexbox/Grid), JavaScript Vanilla
+
+Modular CSS para mantenibilidad
+
+Configuración optimizada para Vercel
+
+🗂️ Backend (Especialidad):
+
+Java SE - Programación orientada a objetos
+
+Spring Boot - Desarrollo rápido de aplicaciones
+
+Spring Cloud - Microservicios y configuración distribuida
+
+JPA/Hibernate - ORM y mapeo objeto-relacional
+
+MySQL - Bases de datos relacionales
+
+Maven - Gestión de dependencias y builds
+
+Docker - Contenerización de aplicaciones
+
+🛠️ Metodologías & Herramientas:
+
+API REST - Diseño de endpoints RESTful
+
+Microservicios - Arquitectura distribuida
+
+Git & GitHub - Control de versiones
+
+Postman - Testing de APIs
+
+Clean Code & Patrones de Diseño - Mejores prácticas
+
+Scrum - Metodologías ágiles
+
+________________________________________________________________________
+
+🤝 Contacto
+LinkedIn: linkedin.com/in/cristian-ojeda-developer
+
+GitHub: github.com/Cristian3-8
+
+Email: criss259_@hotmail.com
+
+Portfolio: portafolio-cristian-ojeda.vercel.app
+
+⭐ Si este portfolio te es útil, ¡considera darle una estrella en GitHub!
