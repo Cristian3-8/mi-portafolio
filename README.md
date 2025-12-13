@@ -1,12 +1,5 @@
 🚀 Portfolio | Cristian Ojeda
 Java Backend Developer
-https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
-https://img.shields.io/badge/Spring%2520Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white
-https://img.shields.io/badge/Spring%2520Cloud-6DB33F?style=for-the-badge&logo=spring&logoColor=white
-https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
-https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
-https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
-
 Portfolio profesional moderno que exhibe mi experiencia y proyectos como desarrollador backend especializado en Java Spring Boot, arquitecturas de microservicios y desarrollo de APIs REST robustas.
 
 👉 Visita el portfolio: portafolio-cristian-ojeda.vercel.app
@@ -26,14 +19,14 @@ Portfolio profesional moderno que exhibe mi experiencia y proyectos como desarro
 
 
 🛠️ Tecnologías Utilizadas
-Frontend
+##Frontend
 HTML5 Semántico, CSS3 (Flexbox/Grid), JavaScript Vanilla
 
 Modular CSS para mantenibilidad
 
 Configuración optimizada para Vercel
 
-Backend (Especialidad)
+##Backend (Especialidad)
 Java SE - Programación orientada a objetos
 
 Spring Boot - Desarrollo rápido de aplicaciones
@@ -48,7 +41,7 @@ Maven - Gestión de dependencias y builds
 
 Docker - Contenerización de aplicaciones
 
-Metodologías & Herramientas
+##Metodologías & Herramientas
 API REST - Diseño de endpoints RESTful
 
 Microservicios - Arquitectura distribuida
@@ -61,18 +54,7 @@ Clean Code & Patrones de Diseño - Mejores prácticas
 
 Scrum - Metodologías ágiles
 
-📂 Estructura del Proyecto
-portfolio/
 
-|   └── public/
-
-|         ├── cv/
-
-|         ├── images/ 
-
-|         └── index.html  # Página principal
-
-└── README.md             # Este archivo
 
 🤝 Contacto
 LinkedIn: linkedin.com/in/cristian-ojeda-developer
