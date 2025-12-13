@@ -8,7 +8,9 @@ Portfolio profesional moderno que exhibe mi experiencia y proyectos como desarro
 
 📧 Contacto: criss259_@hotmail.com
 
-✨ Características del Portfolio
+________________________________________________________________________
+
+✨ Características del Portfolio:
 
 🎨 Diseño Moderno	Interfaz limpia y profesional con modo claro/oscuro
 
@@ -20,6 +22,7 @@ Portfolio profesional moderno que exhibe mi experiencia y proyectos como desarro
 
 🗂️ Proyectos Dinámicos	Proyectos cargados dinámicamente para fácil actualización
 
+________________________________________________________________________
 
 🛠️ Tecnologías Utilizadas
 ##Frontend
@@ -57,7 +60,7 @@ Clean Code & Patrones de Diseño - Mejores prácticas
 
 Scrum - Metodologías ágiles
 
-
+________________________________________________________________________
 
 🤝 Contacto
 LinkedIn: linkedin.com/in/cristian-ojeda-developer
