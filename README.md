@@ -5,6 +5,7 @@ Java Backend Developer
 Portfolio profesional moderno que exhibe mi experiencia y proyectos como desarrollador backend especializado en Java Spring Boot, arquitecturas de microservicios y desarrollo de APIs REST robustas.
 
 👉 Visita el portfolio: portafolio-cristian-ojeda.vercel.app
+
 📧 Contacto: criss259_@hotmail.com
 
 ✨ Características del Portfolio
