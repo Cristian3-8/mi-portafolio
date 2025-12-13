@@ -24,15 +24,18 @@ ________________________________________________________________________
 
 ________________________________________________________________________
 
-🛠️ Tecnologías Utilizadas
-##Frontend
+🛠️ Tecnologías Utilizadas:
+
+🎨 Frontend:
+
 HTML5 Semántico, CSS3 (Flexbox/Grid), JavaScript Vanilla
 
 Modular CSS para mantenibilidad
 
 Configuración optimizada para Vercel
 
-##Backend (Especialidad)
+🗂️ Backend (Especialidad):
+
 Java SE - Programación orientada a objetos
 
 Spring Boot - Desarrollo rápido de aplicaciones
@@ -47,7 +50,8 @@ Maven - Gestión de dependencias y builds
 
 Docker - Contenerización de aplicaciones
 
-##Metodologías & Herramientas
+🛠️ Metodologías & Herramientas:
+
 API REST - Diseño de endpoints RESTful
 
 Microservicios - Arquitectura distribuida
